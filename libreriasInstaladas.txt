@@ -1,0 +1,9 @@
+npm install express --save
+npm i dotenv
+npm install ejs
+npm install socket 
+npm install nodemailer
+npm i bcrypt
+npm i mongoose
+npm i mongo 
+npm i jsonwebtoken
