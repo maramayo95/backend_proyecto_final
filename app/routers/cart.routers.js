@@ -1,10 +1,9 @@
 import {Router} from 'express'
+import CartController from '../controller/cart.controller.js'
 
 const routeCart = Router()
 
-routeCart.get('/', (req,res) => {
-    res.send("Hola")
-})
+routeCart.post('/', CartController.addCart)
 
 
 export default routeCart
