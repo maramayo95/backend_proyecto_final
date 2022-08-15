@@ -5,8 +5,7 @@ import routeProduct from './routers/products.routers.js'
 const app = express()
 
 
-// app.set('view engine', 'ejs')
-// app.set('views', __dirname + '/views/partials')
+
 
 app.use(json())
 app.use(urlencoded({extended:true}))

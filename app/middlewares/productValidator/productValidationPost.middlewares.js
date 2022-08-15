@@ -1,5 +1,6 @@
-import { check} from 'express-validator'
+import { check } from 'express-validator'
 import { validateResult } from '../../helpers/productValidator/productValidatorPost.helper.js'
+
 
  export const productPostValidate = [ 
     check('name')

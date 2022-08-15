@@ -2,6 +2,7 @@
 
 import ProductServices from "../service/product.services.js";
 
+
 class ProductController{ 
     async listProducts(req,res) {
         const products = await ProductServices.listProducts()
@@ -9,9 +10,11 @@ class ProductController{
     }
     async saveProducts(req,res){
         try {
+            console.log(req.body)
             const product = req.body
             const newProduct = await ProductServices.saveProduct(product)
             res.send(newProduct).status(201)
+          
             
         } catch (error) {
             res.json(error).status(500)
