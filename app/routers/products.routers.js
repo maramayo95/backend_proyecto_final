@@ -3,7 +3,7 @@ import ProductController from '../controller/products.controller.js'
 import { productPostValidate } from '../middlewares/productValidator/productValidationPost.middlewares.js'
 import {isValidId} from '../middlewares/productValidator/isValidId.js'
 
-import {upload} from '../helpers/multer/multerProduct.helper.js'
+import {upload} from '../middlewares/multer/multerProduct.middlewares.js'
 
 const routeProduct = Router()
 

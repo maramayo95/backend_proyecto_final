@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 import app from './app/app.js'
 import 'dotenv/config'
 
