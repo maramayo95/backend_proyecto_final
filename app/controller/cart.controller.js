@@ -2,8 +2,13 @@ import CartServices from '../service/cart.services.js'
 
 class CartController {
     async getCarts(req,res){
-        const cart = await CartServices.getAllCarts()
-        res.send(cart)
+        try {
+            const cart = await CartServices.getAllCarts()
+            res.send(cart)
+        } catch (error) {
+            res.status(404).send(error)
+        }
+      
     }
     async getCartById(req,res){
         try {
@@ -31,6 +36,20 @@ class CartController {
         } catch (error) {
             res.status(500).send(error)
         }
+    }
+    async deleteCartById(req,res){
+        try {
+            const id =  req.params.id
+            const cart =  await CartServices.deleteOneCart(id)
+            res.send(cart)
+        } catch (error) {
+            res.send(error)
+        }
+    }
+    async deleteProductById(req,res){
+        const {idCart, idProduct} = req.params
+        const cart = await CartServices.deleteCartProductById(idCart, idProduct)
+        res.send(cart)
     }
 
 }
