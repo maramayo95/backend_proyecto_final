@@ -1,13 +1,11 @@
 import {Router} from 'express'
-
-//Instalar multer 
+import Auth from '../controller/auth.controller.js'
 
 
 const routeAuth = Router()
 
-routeAuth.get('/', (req,res) => {
-    res.send("Hola")
-})
+routeAuth.post('/register', Auth.register)
+routeAuth.post('/login', Auth.login)
 
 
 export default routeAuth
