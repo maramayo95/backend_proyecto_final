@@ -5,15 +5,19 @@ import jwt from "jsonwebtoken";
 class Auth {
   async register(req, res) {
     try {
-      const salt = await bcrypt.genSalt(10);
-
+      
       const password = req.body.password;
       const passwordVerification = req.body.passwordVerification;
-
+      
+      //Services
+      const salt = await bcrypt.genSalt(10);
+      
       if (password === passwordVerification) {
         const passwordHash = await bcrypt.hash(password, salt);
         return passwordHash;
       }
+
+      //DAO?
 
       const userExist = await User.findOne({ email: req.body.email });
 

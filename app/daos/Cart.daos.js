@@ -8,7 +8,9 @@ class CartDao {
         return cart 
     }
     async getCartById(id){
+        console.log('Este es getCartBy Id' + '' + id)
         const cart = await Cart.findById({_id: id})
+        console.log('Este es el cart de getbyId' + cart )
         return cart 
     }
     async addCart(){
@@ -17,23 +19,22 @@ class CartDao {
         })
         return addNewCart
     }
-    async addProductToCart(idCart,idProduct){
-        const cart = await Cart.findOne({_id: idCart})
-        cart.products.push(idProduct)
-        cart.save()
-        //No carga mas de dos productos
-        return cart
-        // const cart = await
+    async addProductToCart(idCart,product){
+        const prodAdd = await Cart.updateOne({_id: idCart}, {$addToSet: {products: product} }) ;
+        return prodAdd
     }
     async deleteCartById(id){
         const cart = await Cart.deleteOne({_id: id})
         return cart
     }
     async deleteProductById(idCart, idProduct){
-        const cart = await Cart.findOne({_id : idCart})
-        //cart.products.filter(prod => prod.type != mongoose.Types.ObjectId(idProduct))
-        cart.deleteOne({products: mongoose.Types.ObjectId(idProduct) })
-        cart.save()
+        console.log(idCart)
+        const cart = await this.getCartById(idCart)
+        console.log('delete product by id ' + cart)
+        //const cart = await Cart.findOne({_id : idCart})
+        //const filter = cart.products.filter(prod =>  !=  )
+        // cart.deleteOne({products: mongoose.Types.ObjectId(idProduct) })
+        //cart.save()
         return cart
     }
 }

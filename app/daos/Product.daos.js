@@ -15,7 +15,7 @@ class ProductDao {
         return addProduct
     }
 
-    async findProductById(id) {
+    async findOneProductById(id) {
         const findProduct = await Product.findById(id)
         return findProduct
     }

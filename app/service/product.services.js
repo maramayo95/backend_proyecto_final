@@ -12,7 +12,7 @@ class ProductServices {
     }
 
     async findProductById(id) {
-        const findProduct = await ProductDao.findProductById(id)
+        const findProduct = await ProductDao.findOneProductById(id)
         return findProduct
     }
     async deleteProduct(id){
