@@ -27,15 +27,9 @@ class CartDao {
         const cart = await Cart.deleteOne({_id: id})
         return cart
     }
-    async deleteProductById(idCart, idProduct){
-        console.log(idCart)
-        const cart = await this.getCartById(idCart)
-        console.log('delete product by id ' + cart)
-        //const cart = await Cart.findOne({_id : idCart})
-        //const filter = cart.products.filter(prod =>  !=  )
-        // cart.deleteOne({products: mongoose.Types.ObjectId(idProduct) })
-        //cart.save()
-        return cart
+    async deleteProductById(idCart, product){
+        const deleteProd  = await Cart.updateOne({_id: idCart}, {$pull: {products:product}})
+        return deleteProd
     }
 }
 

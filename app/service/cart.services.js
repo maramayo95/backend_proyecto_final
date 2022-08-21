@@ -29,7 +29,8 @@ class CartServices {
         return cart
     }
     async deleteCartProductById(idCart, idProduct){
-        const cart = await CartDao.deleteProductById(idCart, idProduct)
+        const product = await ProductDao.findOneProductById(idProduct)
+        const cart = await CartDao.deleteProductById(idCart, product)
         return cart
     }
 }

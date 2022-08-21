@@ -1,9 +1,15 @@
 import mongoose from 'mongoose'
 
 const messagesSchema = new mongoose.Schema({
-    email: String,
+    email: {
+        type: String,
+        required: true
+    },
     date : Date,
-    body: String
+    body: {
+        type:String,
+        required: true
+    }
 })
 
 const Message = mongoose.model('messages', messagesSchema)
