@@ -43,6 +43,7 @@ class ProductController{
             const id = req.params.id;
             const body = req.body
             const updateProduct = await ProductServices.updateProduct(id, body)
+            res.send(updateProduct)
             
         } catch (error) {
             res.json(error)
@@ -53,9 +54,7 @@ class ProductController{
         try {
             const category = req.params.categoria
             const findByCategory = await ProductServices.findCategory(category)
-            
             res.send(findByCategory)
-            
         } catch (error) {
             res.json(error)
         }

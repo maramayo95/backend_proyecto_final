@@ -30,6 +30,14 @@ class CartDao {
         const deleteProd  = await Cart.updateOne({_id: idCart}, {$pull: {products:product}})
         return deleteProd
     }
+    async updateQuantityProduct(idCart, idProduct, quantity){
+        //const product = await Product.findById({_id:idProduct})
+
+        const cart = await Cart.findById({_id: idCart})
+        console.log(cart.products)
+        return cart
+
+    }
 }
 
 export default new CartDao()

@@ -4,7 +4,7 @@ import verifyToken from '../middlewares/auth/auth.middleware.js'
 
 const routeCart = Router()
 routeCart.get('/:id', CartController.getCartById)
-routeCart.get('/', verifyToken, CartController.getCarts)
+routeCart.get('/',  CartController.getCarts)
 routeCart.post('/', CartController.addCart)
 routeCart.post('/:idCart/producto/:idProduct/cantidad/:quantity', CartController.addProductToCart)
 routeCart.delete('/:id', CartController.deleteCartById )
