@@ -30,8 +30,8 @@ class CartController {
     
     async addProductToCart(req,res){
         try {
-            const {idCart, idProduct} = req.params
-            const cart = await CartServices.addProdToCart(idCart, idProduct)
+            const {idCart, idProduct, quantity} = req.params
+            const cart = await CartServices.addProdToCart(idCart, idProduct, quantity)
             res.status(201).send(cart)
         } catch (error) {
             res.status(500).send(error)
@@ -50,6 +50,11 @@ class CartController {
         const {idCart, idProduct} = req.params
         const cart = await CartServices.deleteCartProductById(idCart, idProduct)
         res.send(cart)
+    }
+    async updateProdCuantity(req,res){
+        const {idCart, idProduct, quantity} = req.params
+        const cart = await CartServices.updateProdCuantity(idCart, idProduct, quantity)
+        return cart
     }
 
 }

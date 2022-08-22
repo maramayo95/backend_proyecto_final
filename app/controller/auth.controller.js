@@ -2,7 +2,12 @@ import User from "../models/user.models.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+
+
 class Auth {
+  constructor(){
+    this.tokenAge = (30 * 24 * 60 * 60) // 30 days
+  }
   async register(req, res) {
     try {
       
@@ -10,52 +15,61 @@ class Auth {
       const passwordVerification = req.body.passwordVerification;
       
       //Services
-      const salt = await bcrypt.genSalt(10);
       
-      if (password === passwordVerification) {
-        const passwordHash = await bcrypt.hash(password, salt);
-        return passwordHash;
+      
+      if (password !== passwordVerification) {
+        res.status(400).send("Las contraseñas no coinciden")
       }
-
+      const salt = await bcrypt.genSalt(10);
+      const passwordHash = await bcrypt.hash(password, salt);
       //DAO?
 
-      const userExist = await User.findOne({ email: req.body.email });
+      const userExist = await User.exists({ email: req.body.email });
 
-      if (userExist) throw new Error("El usuario no se encuentra registrado");
-
-      const newUser = await User.create({
+      if (userExist) {
+        res.status(400).send("El usuario ya existe")
+      } 
+      
+      
+      const user = await User.create({
         name: req.body.name,
         email: req.body.email,
         phone: req.body.phone,
-        password: req.body.password,
+        password: passwordHash,
       });
 
-      res.send(newUser);
+      const data = {
+        name: user.name,
+        password: user.password,
+      };
+      const token = jwt.sign(data, process.env.PRIVATE_KEY);
+
+      res.cookie("token", token, { maxAge: this.tokenAge })
+      res.send(token)
     } catch (error) {
-      res.send(error.message);
+      res.send(error);
     }
   }
   async login(req, res) {
     const user = await User.findOne({ email: req.body.email });
 
-    if (user) {
-      const equalsPassword = await bcrypt.compare(
-        req.body.password,
-        user.password
-      );
-      if (equalsPassword) {
-        const data = {
-          name: user.name,
-          password: user.password,
-        };
-        const token = jwt.sign(data, process.env.PRIVATE_KEY);
-        res.send({ data, token });
-      } else {
-        res.send("Reescriba sus datos");
-      }
-    } else {
-      res.send("Los campos no coinciden ");
+    if(!user){
+      res.status(400).send("Revise si el usuario y la contraseña son correctos")
     }
+
+    const passwordsMatch = await bcrypt.compare(req.body.password,user.password)
+
+    if(!passwordsMatch){
+      res.status(400).send("Revise si el usuario y la contraseña son correctos")
+    }
+
+    const data = {
+      email: user.email,
+      password: user.password,
+    };
+    const token = jwt.sign(data, process.env.PRIVATE_KEY);
+    res.cookie("token", token, { maxAge: this.tokenAge })
+    res.send("El usuario se ha logueado satisfactoriamente")
   }
 }
 

@@ -10,7 +10,6 @@ class ProductServices {
         const saveProd = await ProductDao.saveProduct(objProd)
         return saveProd
     }
-
     async findProductById(id) {
         const findProduct = await ProductDao.findOneProductById(id)
         return findProduct
@@ -28,9 +27,6 @@ class ProductServices {
         const findByCategory = await ProductDao.findCategory(category)
         return findByCategory
     }
-    
-    
-
 }
 
 

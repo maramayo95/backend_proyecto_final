@@ -1,6 +1,5 @@
 import Cart from '../models/cart.models.js'
-import mongoose from 'mongoose'
-
+import Product from '../models/product.models.js'
 class CartDao {
     async getCarts(){
         const cart = await Cart.find()
@@ -8,9 +7,7 @@ class CartDao {
         return cart 
     }
     async getCartById(id){
-        console.log('Este es getCartBy Id' + '' + id)
         const cart = await Cart.findById({_id: id})
-        console.log('Este es el cart de getbyId' + cart )
         return cart 
     }
     async addCart(){
@@ -19,8 +16,10 @@ class CartDao {
         })
         return addNewCart
     }
-    async addProductToCart(idCart,product){
-        const prodAdd = await Cart.updateOne({_id: idCart}, {$addToSet: {products: product} }) ;
+    async addProductToCart(idCart,idProduct,quantity){
+        const product = await Product.findById({_id:idProduct})
+        product.quantity = quantity
+        const prodAdd = await Cart.updateOne({_id: idCart},{$addToSet: {products: product} }) ;
         return prodAdd
     }
     async deleteCartById(id){

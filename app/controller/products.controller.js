@@ -10,7 +10,7 @@ class ProductController{
     }
     async saveProducts(req,res){
         try {
-            console.log(req.body)
+           // console.log(req.body)
             const product = req.body
             const newProduct = await ProductServices.saveProduct(product)
             res.send(newProduct).status(201)

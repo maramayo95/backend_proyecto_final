@@ -2,19 +2,14 @@
 import Product from '../models/product.models.js'
 
 class ProductDao {
-    //proceso de la base de datos 
-
     async listProducts(){
         const listProds = await Product.find()
         return listProds
     }
-
-    
     async saveProduct(product) {
         const addProduct = await Product.create(product)
         return addProduct
     }
-
     async findOneProductById(id) {
         const findProduct = await Product.findById(id)
         return findProduct
@@ -30,6 +25,10 @@ class ProductDao {
     async findCategory(category){
         const findByCategory = await Product.find({category:category})
         return findByCategory
+    }
+    async addQuantityOrUpdate(idProduct, quantity){
+        const addQuantityToProdOrUpdate = await Product.findByIdAndUpdate({_id: idProduct},{$set:{quantity:quantity}})
+        return addQuantityToProdOrUpdate
     }
 }
 
