@@ -1,0 +1,43 @@
+.titulo-chat{
+    color: #fafafa
+}
+body {
+   background-color: #141719; 
+   
+}
+h1, h2,h3,h4,h5,h6,p  {
+    color:#fafafa;
+}
+
+.body-messages {
+    background-color: #111415;
+ 
+}
+
+.chatBody {
+    overflow-y: auto;
+}
+
+.button-custom{
+    border: none;
+    background-color: #121416;
+    padding: 10px 15px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.button-custom:hover{
+    background-color: #16181b;
+}
+input {
+    border:none;
+    background-color: #121416;
+    color: white;
+    width: 100%;
+    padding: 15px 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+input:active{
+    color: transparent;
+    
+}

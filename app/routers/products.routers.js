@@ -6,7 +6,6 @@ import {isValidId} from '../middlewares/productValidator/isValidId.js'
 
 const routeProduct = Router()
 
-
 routeProduct.get('/', ProductController.listProducts )
 routeProduct.post('/', productPostValidate,  ProductController.saveProducts )
 routeProduct.get('/:id', isValidId, ProductController.getOneProduct)

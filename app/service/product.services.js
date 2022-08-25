@@ -6,7 +6,6 @@ class ProductServices {
         return listProds
     }
     async saveProduct(objProd) {
-        //Validate data of objProd
         const saveProd = await ProductDao.saveProduct(objProd)
         return saveProd
     }
@@ -23,7 +22,6 @@ class ProductServices {
         return updateProduct
     }
     async findCategory(category){
-        console.log(category + 'services')
         const findByCategory = await ProductDao.findCategory(category)
         return findByCategory
     }

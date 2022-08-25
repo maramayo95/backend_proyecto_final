@@ -2,7 +2,12 @@ import mongoose from 'mongoose'
 
 const OrderSchema = new mongoose.Schema({
     date: Date,
-    cart: []
+    products: [],
+    numberOrder: Number,
+    status:{
+        type: String,
+        default: "generada"
+    } 
 
 })
 

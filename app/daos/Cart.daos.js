@@ -32,11 +32,14 @@ class CartDao {
     }
     async updateQuantityProduct(idCart, idProduct, quantity){
         //const product = await Product.findById({_id:idProduct})
-
-        const cart = await Cart.findById({_id: idCart})
-        console.log(cart.products)
-        return cart
-
+        
+        await this.deleteProductById(idProduct)
+        const product = await Product.findById({_id:idProduct})
+        product.quantity = quantity
+        const prodAdd = await Cart.updateOne({_id: idCart},{$addToSet: {products: product} }) ;
+        console.log(prodAdd) 
+       
+        return prodAdd
     }
 }
 
