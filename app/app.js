@@ -4,13 +4,9 @@ import routeCart from './routers/cart.routers.js'
 import routeProduct from './routers/products.routers.js'
 import routeMessages from './routers/messages.routers.js'
 import routeOrder from './routers/orders.routers.js'
-import {Server as HttpServer} from 'http'
-import {Server as  IOServer} from 'socket.io'
 
 const app = express()
 
-const httpServer = new HttpServer(app)
-const io = new IOServer(httpServer)
 
 
 
