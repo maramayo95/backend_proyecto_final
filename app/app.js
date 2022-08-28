@@ -20,6 +20,6 @@ app.use('/productos', routeProduct)
 app.use('/carrito', routeCart)
 app.use('/auth', routeAuth)
 app.use('/chat', routeMessages)
-app.use('/orders/:idCart', routeOrder)
+app.use('/orders', routeOrder)
 
 export default app
