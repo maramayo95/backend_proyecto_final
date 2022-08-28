@@ -2,11 +2,21 @@ import Cart from "../models/cart.models.js"
 import Order from '../models/orders.models.js'
 
 class OrderDao {
-    async generateOrder(cart, body){
-            const newOrder = await Order.create(
+    async getOrders(){
+        const orders = await Order.find()
+        return orders
+    }
+    async getOrder(idOrder){
+        const order = await Order.findById({_id: idOrder})
+        return order
+    }
+    async generateOrder(cart, order, incNumberOrder){
+    if(!cart) return null
+        const newOrder = await Order.create(
                 {
-                    email: body.email,
-                    products: cart.products
+                    email: order.email,
+                    products: cart.products,
+                    numberOrder: incNumberOrder
                 }
             )
         // 5. En el return de servicios ejecutar nodemailer 
@@ -14,13 +24,13 @@ class OrderDao {
         return newOrder
         
     }
-    async getOrders(){
-        const orders = await Order.find()
-        return orders
-    }
     async deleteOrderById(idOrder){
-        const deleteOrder = await Order.findByIdAndDelete({_id : idOrder})
+        const deleteOrder = await Order.findByIdAndDelete(idOrder)
         return deleteOrder
+    }
+    async deleteAll(){
+        const deleteAll = await Order.deleteMany({})
+        return deleteAll
     }
 }
 

@@ -1,7 +1,7 @@
 import {createTransport} from 'nodemailer'
+import templateMail from './templateMail.js'
 
 const sendMail = async (order) => {
-    console.log(order)
     const transporter = createTransport({
         service: 'gmail',
         port: 586,
@@ -12,9 +12,9 @@ const sendMail = async (order) => {
     })
     const mailOptions = {
         from: process.env.MAILBOT,
-        to : process.env.MAILITO,
+        to : process.env.MAILTO,
         subject : 'Comprobante de Compra',
-        html: order
+        html: templateMail(order)
     }
   
     await transporter.sendMail(mailOptions)
