@@ -15,16 +15,15 @@ io.on('connection', (socket) => {
     // "connection" se ejecuta la primera vez que se abre una nueva conexión
       console.log('Usuario conectado')
     // Se imprimirá solo la primera vez que se ha abierto la conexión    
-        socket.emit('message', 'Este es mi mensaje desde el servidor')
-        socket.on('message', data => {
+        socket.emit('server-message', 'Este es mi mensaje desde el servidor')
+        socket.on('client-message', data => {
           try {
-              if(!token) throw new Error()
-              console.log(data)
+              if(!data.token) throw new Error()
               jwt.verify(token, process.env.PRIVATE_KEY);
               MessageController.saveMessage(data)
 
              } catch (err) {
-              socket.emit('message' , 'ERROR: Por favor inicia sesion ')
+              socket.emit('server-message' , 'ERROR: Por favor inicia sesion ')
             }
 
         })
