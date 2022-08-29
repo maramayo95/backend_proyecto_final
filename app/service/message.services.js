@@ -2,7 +2,7 @@ import Message from '../daos/Message.daos.js'
 
 class MessageServices{
     async saveMessage(email, message){
-        const save = await Message.save(email, message)
+        const save = await Message.saveMessage(email, message)
         return save
     }
     async getMessages(){

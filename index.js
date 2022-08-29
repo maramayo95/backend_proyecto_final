@@ -6,6 +6,7 @@ import {Server as  IOServer} from 'socket.io'
 import 'dotenv/config'
 import MessageController from './app/controller/message.controller.js'
 import jwt from 'jsonwebtoken'
+import messageServices from './app/service/message.services.js'
 
 const httpServer = new HttpServer(app)
 const io = new IOServer(httpServer)
@@ -19,8 +20,8 @@ io.on('connection', (socket) => {
         socket.on('client-message', data => {
           try {
               if(!data.token) throw new Error()
-              jwt.verify(token, process.env.PRIVATE_KEY);
-              MessageController.saveMessage(data)
+              jwt.verify(data.token, process.env.PRIVATE_KEY);
+              messageServices.saveMessage(data.email, data.message)
 
              } catch (err) {
               socket.emit('server-message' , 'ERROR: Por favor inicia sesion ')
