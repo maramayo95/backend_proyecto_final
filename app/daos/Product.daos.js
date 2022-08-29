@@ -10,16 +10,16 @@ class ProductDao {
         const addProduct = await Product.create(product)
         return addProduct
     }
-    async findOneProductById(id) {
-        const findProduct = await Product.findById(id)
+    async findOneProductById(idProduct) {
+        const findProduct = await Product.findById(idProduct)
         return findProduct
     }
-    async deleteProduct(id){
-        const deleteProduct = await Product.findByIdAndDelete(id)
+    async deleteProduct(idProduct){
+        const deleteProduct = await Product.findByIdAndDelete(idProduct)
         return deleteProduct
     }
-    async updateProduct(id, body){
-        const updateProduct = await Product.findByIdAndUpdate(id,body)
+    async updateProduct(idProduct, body){
+        const updateProduct = await Product.findByIdAndUpdate(idProduct,body)
         return updateProduct
     }
     async findCategory(category){
@@ -29,6 +29,10 @@ class ProductDao {
     async addQuantityOrUpdate(idProduct, quantity){
         const addQuantityToProdOrUpdate = await Product.findByIdAndUpdate({_id: idProduct},{$set:{quantity:quantity}})
         return addQuantityToProdOrUpdate
+    }
+    async deleteAll(){
+        const delAll = await Product.deleteMany({})
+        return delAll
     }
 }
 

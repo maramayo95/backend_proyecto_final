@@ -10,10 +10,11 @@ const OrderSchema = new mongoose.Schema({
         type: String,
         default: "generada"
     }, 
-    email: {type: String,
+    email: {
+      type: String,
       required:true
       },
-    adress:{
+    adress: {
       type: String,
       required: true
   } 

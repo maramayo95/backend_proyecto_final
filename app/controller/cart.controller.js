@@ -16,7 +16,7 @@ class CartController {
             const cart = await CartServices.getCartById(id)
             res.send(cart)
         } catch (error) {
-            res.status(404).send(`No se ha podido encontrar el carrito seleccionado: ${error}`)
+            res.send(error)
         }
     }
     async addCart(req,res){

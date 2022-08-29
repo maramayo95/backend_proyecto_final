@@ -9,21 +9,25 @@ class ProductServices {
         const saveProd = await ProductDao.saveProduct(objProd)
         return saveProd
     }
-    async findProductById(id) {
-        const findProduct = await ProductDao.findOneProductById(id)
+    async findProductByidProduct(idProduct) {
+        const findProduct = await ProductDao.findOneProductByidProduct(idProduct)
         return findProduct
     }
-    async deleteProduct(id){
-        const deleteProduct = await ProductDao.deleteProduct(id)
+    async deleteProduct(idProduct){
+        const deleteProduct = await ProductDao.deleteProduct(idProduct)
         return deleteProduct
     }
-    async updateProduct(id, body){
-        const updateProduct = await ProductDao.updateProduct(id,body)
+    async updateProduct(idProduct, body){
+        const updateProduct = await ProductDao.updateProduct(idProduct,body)
         return updateProduct
     }
     async findCategory(category){
         const findByCategory = await ProductDao.findCategory(category)
         return findByCategory
+    }
+    async deleteAll(){
+        const delAll = await ProductDao.deleteAll()
+        return delAll
     }
 }
 

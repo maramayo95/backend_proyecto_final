@@ -15,6 +15,7 @@ class OrderDao {
         const newOrder = await Order.create(
                 {   date: new Date(),
                     email: order.email,
+                    adress: order.adress,
                     products: cart.products,
                     numberOrder: incNumberOrder
                 }

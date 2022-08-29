@@ -1,10 +1,10 @@
 import { check} from 'express-validator'
 import {validateResult} from '../../helpers/productValidator/isValidId.helper.js'
 
-export const isValidId = [
-    check('id')
+export const isValidIdProduct = [
+    check('idProduct')
     .exists()
-    .withMessage('You have tu add an request id ')
+    .withMessage('You have tu add an request Product id ')
     .isString()
     .withMessage('Must be an String')
     .isLength({min:24, max:24})
