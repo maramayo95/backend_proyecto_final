@@ -5,6 +5,7 @@ import {Server as HttpServer} from 'http'
 import {Server as  IOServer} from 'socket.io'
 import 'dotenv/config'
 import MessageController from './app/controller/message.controller.js'
+import jwt from 'jsonwebtoken'
 
 const httpServer = new HttpServer(app)
 const io = new IOServer(httpServer)
@@ -14,9 +15,18 @@ io.on('connection', (socket) => {
     // "connection" se ejecuta la primera vez que se abre una nueva conexión
       console.log('Usuario conectado')
     // Se imprimirá solo la primera vez que se ha abierto la conexión    
-        socket.emit('mi mensaje', 'Este es mi mensaje desde el servidor')
-        socket.on('new-message', data => {
-        MessageController.saveMessage(data)
+        socket.emit('message', 'Este es mi mensaje desde el servidor')
+        socket.on('message', data => {
+          try {
+              if(!token) throw new Error()
+              console.log(data)
+              jwt.verify(token, process.env.PRIVATE_KEY);
+              MessageController.saveMessage(data)
+
+             } catch (err) {
+              socket.emit('message' , 'ERROR: Por favor inicia sesion ')
+            }
+
         })
     })
   

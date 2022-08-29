@@ -5,9 +5,7 @@ import jwt from "jsonwebtoken";
 
 
 class Auth {
-  constructor(){
-    this.tokenAge = (30 * 24 * 60 * 60) // 30 days
-  }
+ 
   async register(req, res) {
     try {
       
@@ -19,6 +17,7 @@ class Auth {
       
       if (password !== passwordVerification) {
         res.status(400).send("Las contraseñas no coinciden")
+        return
       }
       const salt = await bcrypt.genSalt(10);
       const passwordHash = await bcrypt.hash(password, salt);
@@ -27,7 +26,8 @@ class Auth {
       const userExist = await User.exists({ email: req.body.email });
 
       if (userExist) {
-        res.status(400).send("El usuario ya existe")
+         res.status(400).send("El usuario ya existe")
+         return      
       } 
       
       
@@ -43,8 +43,9 @@ class Auth {
         password: user.password,
       };
       const token = jwt.sign(data, process.env.PRIVATE_KEY);
+      const  tokenAge = (30 * 24 * 60 * 60) // 30 days
 
-      res.cookie("token", token, { maxAge: this.tokenAge })
+      res.cookie("token", token, { maxAge: tokenAge })
       res.send(token)
     } catch (error) {
       res.send(error);
@@ -67,9 +68,11 @@ class Auth {
       email: user.email,
       password: user.password,
     };
+    const  tokenAge = (30 * 24 * 60 * 60) // 30 days
     const token = jwt.sign(data, process.env.PRIVATE_KEY);
-    res.cookie("token", token, { maxAge: this.tokenAge })
-    res.send("El usuario se ha logueado satisfactoriamente")
+    res.cookie("token", token, { maxAge: tokenAge })
+    res.cookie("email", data.email , { maxAge: tokenAge })
+    res.send(token)
   }
 }
 

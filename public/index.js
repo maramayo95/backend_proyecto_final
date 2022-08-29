@@ -3,16 +3,25 @@ const socket = io();
 const buttonSendMessage = document.getElementById('buton-send')
 
 buttonSendMessage.addEventListener('click', ()=> {
-    const inputMessage = document.getElementById('send').value
+    const message = document.getElementById('send').value
     // alert(inputMessage)
-    socket.emit('new-message', inputMessage)
+    socket.emit('message', {
+        message,
+        token: getCookie("token"),
+        email: getCookie("email")
+    })
 } )
 
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
 
-socket.on('mi mensaje', data => {
+socket.on('message', data => {
     alert(data)
 })
-socket.on('mi mensaje', data => {
+socket.on('message', data => {
     console.log(data)
     socket.emit('notificacion', 'Mensaje recibido exitosamente')
 })

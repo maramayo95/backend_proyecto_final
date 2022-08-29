@@ -1,12 +1,13 @@
 import Message from '../models/messages.models.js'
 
 class MessageDaos{
-    async saveMessage(data){
+    async saveMessage(email, message){
         const save = await Message.create({
             date: Date.now(),
-            email: 'tusanga@tusanga.com',
-            body: data
+            email: email,
+            body: message
         })
+        return save
     }
     async getMessages(){
         const messages = await Message.find()
