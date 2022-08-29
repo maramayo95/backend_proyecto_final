@@ -13,14 +13,12 @@ class OrderDao {
     async generateOrder(cart, order, incNumberOrder){
     if(!cart) return null
         const newOrder = await Order.create(
-                {
+                {   date: new Date(),
                     email: order.email,
                     products: cart.products,
                     numberOrder: incNumberOrder
                 }
             )
-        // 5. En el return de servicios ejecutar nodemailer 
-        // 6. Eliminar Carrito 
         return newOrder
         
     }

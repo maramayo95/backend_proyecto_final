@@ -6,7 +6,7 @@ class CartController {
             const cart = await CartServices.getAllCarts()
             res.send(cart)
         } catch (error) {
-            res.status(404).send(error)
+            res.status(404).send(`No se ha podido encontrar los carritos: ${error}`)
         }
       
     }
@@ -16,7 +16,7 @@ class CartController {
             const cart = await CartServices.getCartById(id)
             res.send(cart)
         } catch (error) {
-            res.status(500).send(error)
+            res.status(404).send(`No se ha podido encontrar el carrito seleccionado: ${error}`)
         }
     }
     async addCart(req,res){
@@ -24,17 +24,17 @@ class CartController {
             const cart = await CartServices.saveCart() 
             res.status(201).send(cart)
         } catch (error) {
-            res.status(500).send(console.log(error))
+            res.status(500).send(`No se ha podido agregar el carrito debido a un error en el servidor ${error}`)
         }
     }
     
     async addProductToCart(req,res){
+        const {idCart, idProduct, quantity} = req.params
         try {
-            const {idCart, idProduct, quantity} = req.params
-            const cart = await CartServices.addProdToCart(idCart, idProduct, quantity)
-            res.status(201).send(cart)
+                const cart = await CartServices.addProdToCart(idCart, idProduct, quantity)
+                res.status(201).send(cart) 
         } catch (error) {
-            res.status(500).send(error)
+                res.status(400).send(error)   
         }
     }
     async deleteCartById(req,res){
@@ -43,18 +43,28 @@ class CartController {
             const cart =  await CartServices.deleteOneCart(id)
             res.send(cart)
         } catch (error) {
-            res.send(error)
+            res.status(404).send(`No se ha podido encontrar el carrito seleccionado :  ${error}`)
         }
     }
     async deleteProductById(req,res){
-        const {idCart, idProduct} = req.params
-        const cart = await CartServices.deleteCartProductById(idCart, idProduct)
-        res.send(cart)
+        try {
+            const {idCart, idProduct} = req.params
+            const cart = await CartServices.deleteCartProductById(idCart, idProduct)
+            res.send(cart)
+        } catch (error) {
+            res.status(404).send(`No se ha podido encontrar el producto seleccionado :  ${error}`)
+        }
+        
     }
     async updateProdCuantity(req,res){
         const {idCart, idProduct, quantity} = req.params
-        const cart = await CartServices.updateProdCuantity(idCart, idProduct, quantity)
-        return cart
+        try {
+            const cart = await CartServices.updateProdCuantity(idCart, idProduct, quantity)
+            return cart
+        } catch (error) {
+            res.status(500).send(`No se ha podido actualizar la cantidad seleccionada, verifique si todos los campos son correctos :  ${error}`)
+        }
+   
     }
 
 }

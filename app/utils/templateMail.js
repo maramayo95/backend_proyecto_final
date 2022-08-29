@@ -14,6 +14,7 @@ const mailTemplate = order => {
         <h1>Gracias por su Compra </h1>
         <h2>Numero de orden : ${order._id}</h2>
         <p>Email : ${order.email} </p>
+        <p>Dirección: ${order.adress}
         
         <div>
             <h3>Pedido</h3>

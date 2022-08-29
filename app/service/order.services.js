@@ -25,7 +25,7 @@ class OrderServices {
         
         const generate = await OrderDao.generateOrder(cart,order, incNumberOrder)
         await sendMail(generate)
-        // await CartDao.deleteCartById(idCart) 
+        await CartDao.deleteCartById(idCart) 
         
         return generate
     }
