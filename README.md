@@ -64,3 +64,49 @@ npm run dev
 ```bash
  productos/:idProduct
 ```
+
+
+### /carrito
+#### GET: "/" 
+Traer todos los productos 
+
+```bash
+ /carrito
+```
+
+#### GET: /:id 
+Traer carrito por id
+```bash
+ /carrito/:id
+```
+
+#### POST: /  
+Agrega un producto a la base de datos
+```bash
+ /carrito/
+```
+
+#### POST: /:idCart/producto/:idProduct/cantidad/:quantity 
+Agrega un producto al carrito de compras
+
+```bash
+ /carrito/:idCart/producto/:idProduct/cantidad/:quantity
+```
+
+#### DELETE:  /:id Elimina carrito por id 
+```bash
+ /carrito/:id
+```
+
+#### DELETE: /:idCart/producto/:idProduct/cantidad/:quantity 
+Elimina un productos del carrito
+
+```bash
+ /carrito/:idCart/producto/:idProduct/cantidad/:quantity
+```
+
+#### PUT /:idCart/producto/:idProduct/cantidad/:quantity
+Actualiza los productos por ID
+```bash
+ /carrito/:idCart/producto/:idProduct/cantidad/:quantity
+```
