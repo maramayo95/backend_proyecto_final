@@ -4,7 +4,6 @@ const buttonSendMessage = document.getElementById('buton-send')
 
 buttonSendMessage.addEventListener('click', ()=> {
     const message = document.getElementById('send').value
-    // alert(inputMessage)
     socket.emit('client-message', {
         message,
         token: getCookie("token"),
@@ -18,10 +17,6 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
 
-// socket.on('server-message', data => {
-//     alert(data)
-// })
 socket.on('server-message', data => {
     console.log(data)
-    // socket.emit('notificacion', 'Mensaje recibido exitosamente')
 })

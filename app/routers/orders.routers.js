@@ -7,7 +7,6 @@ import verifyToken from '../middlewares/auth/auth.middleware.js'
 
 const routeOrder = Router()
 
-// routeOrder.post('/', generateOrder )
 routeOrder.get('/', verifyToken, OrderController.getOrders)
 routeOrder.get('/:idOrder',[verifyToken, isValidIdOrder], OrderController.getOrder)
 routeOrder.post('/:idCart',[verifyToken,  isValidIdCart],  OrderController.generateOrder)

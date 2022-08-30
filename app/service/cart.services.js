@@ -15,7 +15,6 @@ class CartServices {
             return saveNewCart
     }
     async addProdToCart(idCart, idProduct, quantity){
-        //const product = await ProductDao.addQuantityOrUpdate(idProduct, quantity)
         const cart = await CartDao.addProductToCart(idCart, idProduct, quantity)
         return cart
     }
@@ -29,7 +28,6 @@ class CartServices {
         return cart
     }
     async updateProdCuantity(idCart, idProduct, quantity){
-        //const product = await ProductDao.addQuantityOrUpdate(idProduct, quantity)
         const updateProduct = await CartDao.updateQuantityProduct(idCart, idProduct, quantity)
         return updateProduct
     }

@@ -3,7 +3,6 @@ import Product from '../models/product.models.js'
 class CartDao {
     async getCarts(){
         const cart = await Cart.find()
-        console.log(cart)
         return cart 
     }
     async getCartById(id){
@@ -35,7 +34,6 @@ class CartDao {
         const product = await Product.findById({_id:idProduct})
         product.quantity = quantity
         const prodAdd = await Cart.updateOne({_id: idCart},{$addToSet: {products: product} }) ;
-        console.log(prodAdd) 
        
         return prodAdd
     }

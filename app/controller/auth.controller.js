@@ -63,7 +63,7 @@ class Auth {
 
     const data = {
       email: user.email,
-      password: user.password,
+      name: user.name,
     };
     const  tokenAge = (30 * 24 * 60 * 60) // 30 days
     const token = jwt.sign(data, process.env.PRIVATE_KEY);

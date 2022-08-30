@@ -13,15 +13,13 @@ const io = new IOServer(httpServer)
 
 
 io.on('connection', (socket) => {
-    // "connection" se ejecuta la primera vez que se abre una nueva conexión
-      console.log('Usuario conectado')
-    // Se imprimirá solo la primera vez que se ha abierto la conexión    
+
         socket.emit('server-message', 'Este es mi mensaje desde el servidor')
         socket.on('client-message', data => {
           try {
               if(!data.token) throw new Error()
-              jwt.verify(data.token, process.env.PRIVATE_KEY);
-              messageServices.saveMessage(data.email, data.message)
+              const payload = jwt.verify(data.token, process.env.PRIVATE_KEY);
+              messageServices.saveMessage(payload.email, data.message)
 
              } catch (err) {
               socket.emit('server-message' , 'ERROR: Por favor inicia sesion ')

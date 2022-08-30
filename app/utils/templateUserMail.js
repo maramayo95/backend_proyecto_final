@@ -1,5 +1,4 @@
 const mailTemplate = user => { 
-    console.log(user.name)
     if(!user) return " <p>No hay Usuarios</p>"
      
      
