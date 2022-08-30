@@ -31,15 +31,36 @@ npm run dev
 #### GET: "/" Traer todos los productos 
 
 ```bash
- "productos/"
+ productos/
 ```
 
-#### GET: "/:idProduct Traer producto por id
+#### GET: /:idProduct Traer producto por id
 ```bash
- "productos/:idProduct"
+ productos/:idProduct
 ```
 
-#### GET: "/categoria/:categoria Devuelve los productos filtrados por categoria
+#### GET: /categoria/:categoria Devuelve los productos filtrados por categoria
 ```bash
- "productos/categoria/:categoria"
+ productos/categoria/:categoria
+```
+
+#### POST: / Agrega un producto a la base de datos
+```bash
+ productos/
+```
+
+#### DELETE:  /:idProduct Elimina un producto por id
+```bash
+ productos/:idProduct
+```
+
+#### DELETE: /delete/all Elimina todos los productos de la base de datos
+
+```bash
+ productos/delete/all
+```
+
+#### PUT /:idProduct Actualiza los productos por ID
+```bash
+ productos/:idProduct
 ```
