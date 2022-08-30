@@ -111,7 +111,7 @@ Actualiza los productos por ID
  /carrito/:idCart/producto/:idProduct/cantidad/:quantity
 ```
 
-### /orders
+## /orders
 #### GET: "/" 
 Traer todas las ordenes 
 ```bash
