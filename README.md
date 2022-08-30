@@ -141,3 +141,28 @@ Elimina todas las ordenes de compras
  /orders/delete/all
 ```
 
+
+## /user
+#### GET: "/" 
+Traer a todos los usuarios
+```bash
+ /users/
+```
+
+#### GET: /:id 
+Traer usuario por id
+```bash
+ /users/:id
+```
+
+
+#### DELETE: /:id Elimina una orden por id 
+```bash
+ /users/:id
+```
+
+#### DELETE: /
+Elimina a todos los usuarios
+```bash
+ /users/
+```
