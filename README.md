@@ -125,7 +125,7 @@ Traer orden por id
 ```
 
 #### POST: /:idCart
-Agrega un carrito y genera una orden
+Agrega un carrito y genera una orden. Cuando se efectua la orden elimina el carrito existente
 ```bash
  /orders/:idCart
 ```
