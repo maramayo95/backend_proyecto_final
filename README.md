@@ -13,7 +13,7 @@ Implemente en éste proyecto tecnologías como :
 - Nodemon
 
 
-## Installation
+# Installacion
 
 Instalar todas las dependencias.
 
@@ -21,7 +21,7 @@ Instalar todas las dependencias.
 npm i 
 ```
 
-## Ejecución del proyecto
+# Ejecución del proyecto
 ```bash
 npm run dev
 ```
