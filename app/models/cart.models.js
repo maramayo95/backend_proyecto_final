@@ -5,8 +5,6 @@ const CartSchema = new mongoose.Schema({
         type:Date,
     } ,
     products: [], 
-    
-
 })
 
 const Cart = mongoose.model('cart', CartSchema)

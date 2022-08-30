@@ -6,10 +6,10 @@ import verifyToken from '../middlewares/auth/auth.middleware.js'
 
 const routeProduct = Router()
 
-routeProduct.get('/',  ProductController.listProducts )
+routeProduct.get('/', verifyToken,  ProductController.listProducts )
 routeProduct.post('/', [verifyToken, productPostValidate],  ProductController.saveProducts )
-routeProduct.get('/:idProduct', isValidIdProduct, ProductController.getOneProduct)
-routeProduct.get('/categoria/:categoria',  ProductController.findCategory)
+routeProduct.get('/:idProduct', [verifyToken, isValidIdProduct], ProductController.getOneProduct)
+routeProduct.get('/categoria/:categoria', verifyToken, ProductController.findCategory)
 routeProduct.delete('/:idProduct', [verifyToken, isValidIdProduct] ,ProductController.deleteProduct) //validate category
 routeProduct.delete('/delete/all', verifyToken, ProductController.deleteAll )
 routeProduct.put('/:idProduct', [verifyToken, isValidIdProduct],  ProductController.updateProduct )

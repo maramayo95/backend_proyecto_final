@@ -12,7 +12,7 @@ class CartController {
     }
     async getCartById(req,res){
         try {
-            const id = req.params.id
+            const id = req.params.idCart
             const cart = await CartServices.getCartById(id)
             res.send(cart)
         } catch (error) {
@@ -39,7 +39,7 @@ class CartController {
     }
     async deleteCartById(req,res){
         try {
-            const id =  req.params.id
+            const id =  req.params.idCart
             const cart =  await CartServices.deleteOneCart(id)
             res.send(cart)
         } catch (error) {

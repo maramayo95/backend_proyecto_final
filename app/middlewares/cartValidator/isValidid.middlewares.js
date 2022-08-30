@@ -6,9 +6,7 @@ export const isValidIdCart = [
     .exists()
     .withMessage('You have tu add an Cart request id ')
     .isString()
-    .withMessage('Must be an String')
-    .isLength({min:24, max:24})
-    .withMessage('must be 24 chars'),
+    .withMessage('Must be an String'),
     (req,res,next) => {
         validateResult(req,res,next)
     } 
