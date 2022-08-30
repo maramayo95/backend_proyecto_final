@@ -26,6 +26,19 @@ npm i
 npm run dev
 ```
 
+# Variables de Entorno
+
+```bash
+ DB= Clave de mongo atlas
+
+PRIVATE_KEY=secret
+
+NODEMAILERPASS= Contraseña autorización de gmail
+MAILBOT= Mail que envia notificacion de registro de usuarios y ordenes de compra
+
+MAILTO= Email al cual van a ser enviadas las notificaciones
+```
+
 # Endpoints
 ## /producto
 #### GET: "/" Traer todos los productos 
