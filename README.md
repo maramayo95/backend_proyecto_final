@@ -90,7 +90,7 @@ Traer todos los productos
 #### GET: /:id 
 Traer carrito por id
 ```bash
- /carrito/:id
+ /carrito/:idCart
 ```
 
 #### POST: /  
