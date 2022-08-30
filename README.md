@@ -237,7 +237,7 @@ Modelo de productos hecho en Mongo DB
 }
 ```
 
-## Carrito
+## Cart
 Modelo de carrito hecho en Mongo DB
 
 ```bash
@@ -249,7 +249,7 @@ Modelo de carrito hecho en Mongo DB
 }
 ```
 
-## Orders
+## Order
 Modelo de ordenes hecho en Mongo DB
 
 ```bash
@@ -275,5 +275,43 @@ Modelo de ordenes hecho en Mongo DB
 }
 ```
 
+## User
+Modelo de usuarios hecho en Mongo DB
+
+```bash
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  phone: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+```
+
+## Message
+
+```bash
+{
+    date : Date,
+    email: {
+        type: String,
+        required: true
+    },
+    body: {
+        type:String,
+        required: true
+    }
+}
+
+```
 
 
