@@ -12,7 +12,7 @@ class MessageController{
         res.send(messages) 
     }
     async getMessagesByEmail(req,res){{
-        const email = req.body.email
+        const email = req.params.email
         const messages = await messageServices.getMessagesByEmail(email)
         res.send(messages)
     }}
