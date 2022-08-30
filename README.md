@@ -115,7 +115,7 @@ Agrega un producto al carrito de compras
 Elimina un productos del carrito
 
 ```bash
- /carrito/:idCart/producto/:idProduct/cantidad/:quantity
+ /carrito/:idCart/producto/:idProduct
 ```
 
 #### PUT /:idCart/producto/:idProduct/cantidad/:quantity
