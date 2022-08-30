@@ -11,6 +11,11 @@ class UserServices {
             const users = await UsersDaos.getUsers()
             return users
     }
+    async getUsersById(id){
+            const users = await UsersDaos.getUsersById(id)
+            return users
+    }
+
     async deleteOneUser(id){
           const deleteUser = await UsersDaos.deleteOneUser(id)
           return deleteUser

@@ -10,6 +10,16 @@ class UsersController {
             return
         }
     }
+    async getUsersById(req,res){
+        try {
+            const id = req.params.id
+            const getUsers = await UserServices.getUsersById(id)
+            res.send(getUsers)
+        } catch (error) {
+            res.status(404).send("No hay productos en la base de datos")
+            return
+        }
+    }
     async deleteOneUser(req,res){
         try {
             const id = req.params.id

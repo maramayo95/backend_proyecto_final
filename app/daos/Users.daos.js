@@ -14,6 +14,10 @@ class UserDaos {
         const users = await User.find()
         return users 
     }
+    async getUsersById(id) {
+        const users = await User.findById({_id:id})
+        return users 
+    }
     async deleteOneUser(id){
         const deleteUser = await User.findByIdAndDelete({_id: id})
         return deleteUser
