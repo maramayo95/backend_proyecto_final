@@ -199,3 +199,7 @@ Traer todos los mensajes
 ```bash
  /chat/login
 ```
+
+## Protección de rutas
+Todas las rutas se encuentran protegidas. Para poder acceder se debe registrar el usuario y de esa forma se le brindara un token que se deberá incorporar vía header y eso le permitirá acceder a las rutas que desee el usuario. 
+
