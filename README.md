@@ -215,7 +215,7 @@ Loguea un usuario
 
 ## Protección de rutas
 Todas las rutas se encuentran protegidas. Para poder acceder se debe registrar el usuario y de esa forma se le brindara un token que se deberá incorporar vía header y eso le permitirá acceder a las rutas que desee el usuario. 
-El header se debe mandar como : Autorization : token
+El header se debe mandar como : Authorization : token
 
 # Modelos
 Aclaracion : Si bien el proyecto decía que en carrito debían almacenarse dirección y email. Decidi dejar esos datos en el modelo de ordenes como un campo requerido dado que consideré que en las ordenes debía hacerse el checkout de productos. 
