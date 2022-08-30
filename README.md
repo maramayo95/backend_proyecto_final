@@ -189,13 +189,13 @@ Trae los mensajes filtrados por email
 
 ## /auth
 #### POST: "/register" 
-Guarda un mensaje en una base de datos
+Registra un usuario y lo almacena en la base de datos
 ```bash
  /chat/register
 ```
 
 #### POST: "/login"
-Traer todos los mensajes
+Loguea un usuario
 ```bash
  /chat/login
 ```
