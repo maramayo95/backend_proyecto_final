@@ -186,3 +186,16 @@ Trae los mensajes filtrados por email
 ```bash
  /chat/:email
 ```
+
+## /auth
+#### POST: "/register" 
+Guarda un mensaje en una base de datos
+```bash
+ /chat/register
+```
+
+#### POST: "/login"
+Traer todos los mensajes
+```bash
+ /chat/login
+```
