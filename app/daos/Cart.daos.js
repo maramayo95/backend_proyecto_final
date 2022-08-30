@@ -31,9 +31,7 @@ class CartDao {
         return deleteProd
     }
     async updateQuantityProduct(idCart, idProduct, quantity){
-        //const product = await Product.findById({_id:idProduct})
-        
-        await this.deleteProductById(idProduct)
+         await this.deleteProductById(idProduct)
         const product = await Product.findById({_id:idProduct})
         product.quantity = quantity
         const prodAdd = await Cart.updateOne({_id: idCart},{$addToSet: {products: product} }) ;

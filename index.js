@@ -40,4 +40,4 @@ app.use( express.static('public'));
 
 console.log(PORT, 'Este es el puerto')
 
-httpServer.listen(PORT, () => console.log(`http://localhost:${PORT}/auth/register`))
+httpServer.listen(PORT, () => console.log(`http://localhost:${PORT}/login`))

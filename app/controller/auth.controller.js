@@ -1,27 +1,24 @@
 import User from "../models/user.models.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-
+import sendMailUser from "../utils/nodemailerUser.js";
+import UserServices from "../service/user.services.js";
 
 
 class Auth {
- 
+
   async register(req, res) {
     try {
       
       const password = req.body.password;
       const passwordVerification = req.body.passwordVerification;
-      
-      //Services
-      
-      
+
       if (password !== passwordVerification) {
         res.status(400).send("Las contraseñas no coinciden")
         return
       }
       const salt = await bcrypt.genSalt(10);
       const passwordHash = await bcrypt.hash(password, salt);
-      //DAO?
 
       const userExist = await User.exists({ email: req.body.email });
 
@@ -30,13 +27,7 @@ class Auth {
          return      
       } 
       
-      
-      const user = await User.create({
-        name: req.body.name,
-        email: req.body.email,
-        phone: req.body.phone,
-        password: passwordHash,
-      });
+       const user = await UserServices.save(req.body, passwordHash)
 
       const data = {
         name: user.name,
@@ -45,6 +36,9 @@ class Auth {
       const token = jwt.sign(data, process.env.PRIVATE_KEY);
       const  tokenAge = (30 * 24 * 60 * 60) // 30 days
 
+      await sendMailUser(user)
+
+      
       res.cookie("token", token, { maxAge: tokenAge })
       res.send(token)
     } catch (error) {
@@ -52,16 +46,19 @@ class Auth {
     }
   }
   async login(req, res) {
+  
     const user = await User.findOne({ email: req.body.email });
 
     if(!user){
       res.status(400).send("Revise si el usuario y la contraseña son correctos")
+      return
     }
 
     const passwordsMatch = await bcrypt.compare(req.body.password,user.password)
 
     if(!passwordsMatch){
       res.status(400).send("Revise si el usuario y la contraseña son correctos")
+      return
     }
 
     const data = {
@@ -73,6 +70,7 @@ class Auth {
     res.cookie("token", token, { maxAge: tokenAge })
     res.cookie("email", data.email , { maxAge: tokenAge })
     res.send(token)
+    // res.redirect('/products')
   }
 }
 

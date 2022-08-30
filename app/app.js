@@ -5,10 +5,11 @@ import routeProduct from './routers/products.routers.js'
 import routeMessages from './routers/messages.routers.js'
 import routeOrder from './routers/orders.routers.js'
 import * as path from 'path'
+import routeUser from './routers/users.routers.js'
+import {fileURLToPath} from 'url';
+
 
 const app = express()
-
-import {fileURLToPath} from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -35,5 +36,5 @@ app.use('/carrito', routeCart)
 app.use('/auth', routeAuth)
 app.use('/chat', routeMessages)
 app.use('/orders', routeOrder)
-
+app.use('/user', routeUser)
 export default app

@@ -1,7 +1,9 @@
 import jwt from 'jsonwebtoken';
 
 const verifyToken = (req, res, next) => {
-    const token = req.query.token;
+    // Manda por encabezado el token 
+    const token = req.get('Authorization')
+    // const token = req.query.token;
 
     // if the cookie is not set, return an unauthorized error
     if (!token) {
