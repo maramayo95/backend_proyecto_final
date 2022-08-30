@@ -166,3 +166,23 @@ Elimina a todos los usuarios
 ```bash
  /users/
 ```
+
+
+## /chat
+#### POST: "/" 
+Guarda un mensaje en una base de datos
+```bash
+ /chat/
+```
+
+#### GET: "/"
+Traer todos los mensajes
+```bash
+ /chat/
+```
+
+#### GET: "/:email"
+Trae los mensajes filtrados por email 
+```bash
+ /chat/:email
+```
