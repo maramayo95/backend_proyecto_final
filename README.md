@@ -26,8 +26,8 @@ npm i
 npm run dev
 ```
 
-## Endpoints
-### /producto
+# Endpoints
+## /producto
 #### GET: "/" Traer todos los productos 
 
 ```bash
@@ -66,7 +66,7 @@ npm run dev
 ```
 
 
-### /carrito
+## /carrito
 #### GET: "/" 
 Traer todos los productos 
 
@@ -110,3 +110,34 @@ Actualiza los productos por ID
 ```bash
  /carrito/:idCart/producto/:idProduct/cantidad/:quantity
 ```
+
+### /orders
+#### GET: "/" 
+Traer todas las ordenes 
+```bash
+ /orders/
+```
+
+#### GET: /:id 
+Traer orden por id
+```bash
+ /orders/:idOrder
+```
+
+#### POST: /:idCart
+Agrega un carrito y genera una orden
+```bash
+ /orders/:idCart
+```
+
+#### DELETE:  /:idOrder Elimina una orden por id 
+```bash
+ /orders/:idOrder
+```
+
+#### DELETE: /delete/all 
+Elimina todas las ordenes de compras
+```bash
+ /orders/delete/all
+```
+
