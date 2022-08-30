@@ -203,3 +203,77 @@ Loguea un usuario
 ## Protección de rutas
 Todas las rutas se encuentran protegidas. Para poder acceder se debe registrar el usuario y de esa forma se le brindara un token que se deberá incorporar vía header y eso le permitirá acceder a las rutas que desee el usuario. 
 
+# Modelos
+
+## Products
+Modelo de productos hecho en Mongo DB
+```bash
+     name: {
+        type: String,
+        required: true
+    }
+    ,
+    category: {
+        type: String,
+        required: true,
+    },
+    description:{
+        type: String,
+        required: true,
+    } ,
+    image: {
+        type: String,
+        required: true
+       
+    }, price: {
+        type: Number,
+        required: true
+    }, stock: {
+        type: Number,
+        required: true
+    }, quantity: {
+        type:Number
+    }
+}
+```
+
+## Carrito
+Modelo de carrito hecho en Mongo DB
+
+```bash
+{
+    date: {
+        type:Date,
+    } ,
+    products: [], 
+}
+```
+
+## Orders
+Modelo de ordenes hecho en Mongo DB
+
+```bash
+{
+    date: Date,
+    products: [],
+    numberOrder:{
+      type: Number,
+    } ,
+    status:{
+        type: String,
+        default: "generada"
+    }, 
+    email: {
+      type: String,
+      required:true
+      },
+    adress: {
+      type: String,
+      required: true
+  } 
+
+}
+```
+
+
+
