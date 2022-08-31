@@ -204,13 +204,13 @@ Trae los mensajes filtrados por email
 #### POST: "/register" 
 Registra un usuario y lo almacena en la base de datos
 ```bash
- /chat/register
+ /auth/register
 ```
 
 #### POST: "/login"
 Loguea un usuario
 ```bash
- /chat/login
+ /auth/login
 ```
 
 ## Protección de rutas
