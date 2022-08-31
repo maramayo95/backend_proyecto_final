@@ -9,7 +9,6 @@ class Auth {
 
   async register(req, res) {
     try {
-      
       const password = req.body.password;
       const passwordVerification = req.body.passwordVerification;
 

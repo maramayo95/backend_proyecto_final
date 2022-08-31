@@ -60,7 +60,7 @@ class CartController {
         const {idCart, idProduct, quantity} = req.params
         try {
             const cart = await CartServices.updateProdCuantity(idCart, idProduct, quantity)
-            return cart
+            res.send(cart)
         } catch (error) {
             res.status(500).send(`No se ha podido actualizar la cantidad seleccionada, verifique si todos los campos son correctos :  ${error}`)
         }

@@ -4,7 +4,6 @@ import express from 'express'
 import {Server as HttpServer} from 'http'
 import {Server as  IOServer} from 'socket.io'
 import 'dotenv/config'
-import MessageController from './app/controller/message.controller.js'
 import jwt from 'jsonwebtoken'
 import messageServices from './app/service/message.services.js'
 

@@ -12,6 +12,7 @@ class ProductDao {
     }
     async findOneProductById(idProduct) {
         const findProduct = await Product.findById(idProduct)
+        console.log(findProduct)
         return findProduct
     }
     async deleteProduct(idProduct){

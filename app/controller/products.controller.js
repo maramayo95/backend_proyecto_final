@@ -26,6 +26,7 @@ class ProductController{
         try {
             const idProduct = req.params.idProduct;
             const findProduct = await ProductServices.findProductByidProduct(idProduct)
+            console.log(findProduct)
             res.send(findProduct)
         } catch (error) {
             res.status(404).send(error)

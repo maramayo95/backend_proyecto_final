@@ -1,0 +1,841 @@
+{
+	"info": {
+		"_postman_id": "77e71e73-77ef-4ebc-afeb-314ab78bca26",
+		"name": "Proyecto - Final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21675128"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Pedro Aznar\",\r\n    \"email\": \"pedroaznar@pedroaznar.com\",\r\n    \"phone\": \"123\",\r\n    \"password\": \"123\",\r\n    \"passwordVerification\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"pedroaznar@pedroaznar.com\",\r\n    \"password: \"123\",\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/productos/630fdab12d64bb3765e052c6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos",
+								"630fdab12d64bb3765e052c6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Akira\",\r\n        \"category\": \"Mechas\",\r\n        \"description\": \"Es el período Taisho en Japón. Tanjiro, un niño de buen corazón que se gana la vida vendiendo carbón vegetal, encuentra a su familia asesinada por un demonio...\",\r\n        \"image\": \"./productos/imagen.jpg\",\r\n        \"price\": 500,\r\n        \"stock\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/productos/:idProduct",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos",
+								":idProduct"
+							],
+							"variable": [
+								{
+									"key": "idProduct",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Evangelion\",\r\n        \"category\": \"Mechas\",\r\n        \"description\": \"Es el período Taisho en Japón. Tanjiro, un niño de buen corazón que se gana la vida vendiendo carbón vegetal, encuentra a su familia asesinada por un demonio...\",\r\n        \"image\": \"./productos/imagen.jpg\",\r\n        \"price\": 9000,\r\n        \"stock\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/productos/630fdab12d64bb3765e052c6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos",
+								"630fdab12d64bb3765e052c6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/productos/delete/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos",
+								"delete",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Get Cart",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/carrito",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carrito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cart By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/carrito/630d84acedde5c38c26a20a5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carrito",
+								"630d84acedde5c38c26a20a5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/carrito",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carrito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Product to Cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/carrito/630d84acedde5c38c26a20a5/producto/630c1ad8e1410d115c7af5cf/cantidad/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carrito",
+								"630d84acedde5c38c26a20a5",
+								"producto",
+								"630c1ad8e1410d115c7af5cf",
+								"cantidad",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Product to Cart",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/carrito/630d84acedde5c38c26a20a5/producto/630c1ad8e1410d115c7af5cf/cantidad/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carrito",
+								"630d84acedde5c38c26a20a5",
+								"producto",
+								"630c1ad8e1410d115c7af5cf",
+								"cantidad",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product to Cart",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/carrito/630d84acedde5c38c26a20a5/producto/630c1ad8e1410d115c7af5cf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carrito",
+								"630d84acedde5c38c26a20a5",
+								"producto",
+								"630c1ad8e1410d115c7af5cf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cart By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/carrito/630fdef7f8cd3205644518cd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carrito",
+								"630fdef7f8cd3205644518cd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/carrito/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carrito",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Get Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Orders By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/orders/630fe5e012f220710d6d79d2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"630fe5e012f220710d6d79d2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"adress\":\"Calle falsa 123\" ,\r\n    \"email\": \"callefalsa@falsa.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders/630d84acedde5c38c26a20a5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"630d84acedde5c38c26a20a5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/orders/630fe5ccc362494ebba22a28",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"630fe5ccc362494ebba22a28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/orders/delete/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"delete",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "Get All Chats",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/chat",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Chats by Email",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/chat/usuario@usuario.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chat",
+								"usuario@usuario.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/user/630d4fbf2f58acd860993356",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"630d4fbf2f58acd860993356"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/user/630d4fbf2f58acd860993356",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"630d4fbf2f58acd860993356"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVkcm8gQXpuYXIiLCJwYXNzd29yZCI6IiQyYiQxMCR2eEFPY2wvMlRRYS5HTW9sTVVxQ1h1T2JJcXgzY1E4aWpMU2lWZ0dGS2thRnBzTDMxRUdrbSIsImlhdCI6MTY2MTk4MjkzNX0.quYfpVIXOTAOMzKM30IkDO0dNk76aoMgY3t-cu7F-yw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

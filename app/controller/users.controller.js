@@ -13,6 +13,7 @@ class UsersController {
     async getUsersById(req,res){
         try {
             const id = req.params.id
+            console.log(id)
             const getUsers = await UserServices.getUsersById(id)
             res.send(getUsers)
         } catch (error) {
