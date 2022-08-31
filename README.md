@@ -111,7 +111,7 @@ Agrega un producto al carrito de compras
  /carrito/:id
 ```
 
-#### DELETE: /:idCart/producto/:idProduct/cantidad/:quantity 
+#### DELETE: /:idCart/producto/:idProduct
 Elimina un productos del carrito
 
 ```bash
