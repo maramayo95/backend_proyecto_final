@@ -159,25 +159,25 @@ Elimina todas las ordenes de compras
 #### GET: "/" 
 Traer a todos los usuarios
 ```bash
- /users/
+ /user/
 ```
 
 #### GET: /:id 
 Traer usuario por id
 ```bash
- /users/:id
+ /user/:id
 ```
 
 
 #### DELETE: /:id Elimina una orden por id 
 ```bash
- /users/:id
+ /user/:id
 ```
 
 #### DELETE: /
 Elimina a todos los usuarios
 ```bash
- /users/
+ /user/
 ```
 
 
